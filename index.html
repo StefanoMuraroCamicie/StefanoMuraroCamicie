@@ -1,12 +1,11 @@
-
 <!doctype html>
 <html lang="it">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Stefano Muraro Camicie, dal 1969. Scopri dove trovarci nei mercati settimanali, le novità e alle prossime fiere.">
+  <meta name="description" content="Stefano Muraro Camicie, dal 1969. Scopri dove trovarci nei mercati settimanali, l'abbigliamento e le prossime fiere.">
   <meta name="theme-color" content="#faf7ef">
-  <title>Stefano Muraro Camicie | Mercati, Novità e Fiere</title>
+  <title>Stefano Muraro Camicie | Mercati, Abbigliamento e Fiere</title>
           
   <link rel="icon" type="image/png" href="img/logo.png">
 
@@ -113,27 +112,6 @@
     .alert a { font-weight: 600; }
     .markets-note { margin-top: 18px; font-size: .95rem; }
 
-    /* ==================== SEZIONE NOVITÀ (PRODOTTI) ==================== */
-    .products-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 0; padding: 0; list-style: none; }
-    .product-card { display: flex; flex-direction: column; height: 100%; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: var(--shadow); overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
-    .product-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgb(22 22 26 / 8%), 0 16px 36px rgb(22 22 26 / 12%); }
-    .product-media { position: relative; width: 100%; aspect-ratio: 4 / 4.8; background: #f5f0e3; overflow: hidden; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: center; }
-    .product-media .poster { width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0; background: transparent; }
-    .product-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
-    .product-media:hover img { transform: scale(1.04); }
-    .product-media .poster--empty { width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0; border: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: repeating-linear-gradient(135deg, #fbf7ee 0 12px, #f4ede0 12px 24px); color: #7a6200; font: 700 1rem/1.2 var(--serif); text-align: center; }
-    .product-media .poster--empty .empty-icon { font-size: 2.2rem; line-height: 1; }
-    .product-badge { position: absolute; top: 12px; left: 12px; z-index: 2; padding: 4px 12px; border-radius: 999px; background: var(--gold); color: var(--ink); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; box-shadow: 0 2px 8px rgb(0 0 0 / 15%); }
-    .product-body { display: flex; flex-direction: column; flex-grow: 1; padding: 18px; gap: 6px; }
-    .product-category { margin: 0; color: var(--ink-soft); font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
-    .product-title { margin: 0; font: 700 1.35rem/1.15 var(--serif); color: var(--ink); }
-    .product-desc { margin: 4px 0 0; color: var(--ink-soft); font-size: .92rem; line-height: 1.45; flex-grow: 1; }
-    .product-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
-    .product-price { font: 700 1.4rem/1 var(--serif); color: var(--ink); }
-    .product-tag { font-size: .78rem; color: var(--green); font-weight: 600; }
-    .btn--wa-product { width: 100%; min-height: 42px; margin-top: 8px; border: 1px solid #1ba853; border-radius: 12px; background: #25d366; color: #fff; font-size: .92rem; gap: 6px; }
-    .btn--wa-product:hover { background: #1faa54; box-shadow: 0 4px 14px rgb(37 211 102 / 35%); }
-
     /* ==================== FIERE ED EVENTI ==================== */
     .fairs { display: grid; grid-template-columns: 1fr; gap: 16px; }
     .fair { display: grid; grid-template-columns: minmax(112px, 38%) 1fr; align-items: start; gap: 14px; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: var(--shadow); }
@@ -190,11 +168,9 @@
       .js .nav a { padding: 16px 6px; border-bottom: 1px solid var(--line); border-radius: 0; font-size: 1.08rem; }
       .js .nav li:last-child a { border-bottom: 0; }
     }
-    @media (min-width: 580px) { .products-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; } }
     @media (min-width: 680px) { .markets { grid-template-columns: repeat(3, 1fr); } }
     @media (min-width: 700px) { .fairs { grid-template-columns: repeat(2, 1fr); align-items: start; } .fair { grid-template-columns: 1fr; padding: 14px; } .contacts { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 760px) { .header-bar { flex-wrap: nowrap; } .nav { width: auto; margin-left: auto; } .nav ul { flex-wrap: nowrap; } }
-    @media (min-width: 960px) { .products-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; } }
     @media (min-width: 1020px) { .markets { grid-template-columns: repeat(5, 1fr); } .fairs { grid-template-columns: repeat(3, 1fr); } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
   </style>
@@ -213,7 +189,7 @@
         <ul>
           <li><a href="#dove-siamo-oggi">Dove siamo oggi</a></li>
           <li><a href="#mercati-settimanali">Mercati settimanali</a></li>
-          <li><a href="#novita">Novità</a></li>
+          <li><a href="abbigliamento.html">Abbigliamento</a></li>
           <li><a href="#prossime-fiere">Prossime fiere</a></li>
           <li><a href="#contatti">Contatti</a></li>
         </ul>
@@ -234,7 +210,7 @@
           <p class="today-title"><span class="today-kicker">📅 Consulta i nostri prossimi appuntamenti qui sotto!</span></p>
           <div class="today-actions">
             <a class="btn" href="#mercati-settimanali">Mercati settimanali</a>
-            <a class="btn btn--ghost" href="#novita">Scopri le novità</a>
+            <a class="btn btn--ghost" href="abbigliamento.html">Abbigliamento</a>
             <a class="btn btn--ghost" href="#prossime-fiere">Prossime fiere</a>
           </div>
         </div>
@@ -258,183 +234,10 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         SEZIONE NOVITÀ & PRODOTTI
-         ========================================================================== -->
-    <section class="section" id="novita" aria-labelledby="titolo-novita">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">I nostri capi</p>
-          <h2 id="titolo-novita">Le nostre novità</h2>
-          <p class="lead">Dai modelli classici al casual raffinato: scopri le ultime novità disponibili al nostro banco nei mercati e alle fiere. Tocca una foto per ingrandirla.</p>
-        </div>
-
-        <ul class="products-grid">
-
-          <!-- ====================================================================
-               👇 INIZIO BLOCCO DA COPIARE PER AGGIUNGERE UN PRODOTTO 👇
-               (Copia da qui fino alla riga "FINE BLOCCO PRODOTTO" compresa)
-               ==================================================================== -->
-          <li class="product-card">
-            <div class="product-media">
-              <!-- 🏷️ ETICHETTA/BADGE IN ALTO A SINISTRA (es: "Nuovo Arrivo", "100% Cotone", "Puro Lino", "Offerta")
-                   Se non ti serve su questo prodotto, puoi eliminare questa riga: -->
-              <span class="product-badge">Novità</span>
-
-              <!-- 🖼️ DOVE METTERE L'IMMAGINE:
-                   1. Salva la foto del prodotto dentro la cartella "img" (es: img/camicia-oxford-celeste.jpg)
-                   2. Scrivi il nome del file qui sotto dentro src="..."
-                   (Se lasci il pulsante così, cliccandoci sopra la foto si ingrandirà automaticamente a schermo intero) -->
-              <button type="button" class="poster poster--wide" data-zoom aria-label="Ingrandisci foto Giacca in Maglia a Costa Inglese con Zip Integrale">
-                <img src="img/giacca.jpg" alt="Giacca in Maglia a Costa Inglese con Zip Integrale" width="2998" height="3839" loading="lazy">
-              </button>
-            </div>
-
-            <div class="product-body">
-              <!-- 🏷️ CATEGORIA / LINEA (es: "Camicia Uomo", "Slim Fit", "Puro Lino", "Classica") -->
-              <p class="product-category">Maglieria e Capispalla Casual</p>
-
-              <!-- 🏷️ NOME DEL PRODOTTO: scrivi qui il titolo principale -->
-              <h3 class="product-title">Giacca in Maglia a Costa Inglese con Zip Integrale</h3>
-
-              <!-- 📝 DOVE SCRIVERE LA DESCRIZIONE DEL PRODOTTO:
-                   Scrivi qui i dettagli: tessuto, colletto, vestibilità, colori e taglie disponibili -->
-              <p class="product-desc">Cardigan giacca da uomo in maglia pesante a costa inglese color beige, caratterizzato da chiusura con zip integrale frontale e collo alto. Il capo presenta pratiche tasche laterali con zip, finiture a costine elasticizzate su polsini e fondo, e dettagli ricamati stilizzati sul petto e sulla manica. Disponibile nelle taglie dalla M alla XXXL, è ideale come maglione caldo o come capospalla pratico e sportivo per la stagione fredda.</p>
-
-              <div class="product-meta">
-                <!-- 💰 DOVE SCRIVERE IL PREZZO DEL PRODOTTO:
-                     Scrivi il prezzo (es. € 35,00) oppure un testo come "Prezzo al banco" -->
-                <span class="product-price">€ 39,00</span>
-                <!-- Disponibilità o nota rapida -->
-                <span class="product-tag">Disponibile al banco</span>
-              </div>
-
-              <!-- 💬 PULSANTE WHATSAPP (Opzionale):
-                   I clienti possono cliccarlo per chiederti info o la taglia su WhatsApp.
-                   Puoi cambiare il testo preimpostato dopo "text=" -->
-              <a class="btn btn--wa-product" href="https://wa.me/393473820793?text=Ciao!%20Vorrei%20informazioni%20sulla%20Giacca%20in%20a%20Costa%20Inglese%20con%20Zip%20Integrale" target="_blank" rel="noopener noreferrer">
-                Chiedi disponibilità su WhatsApp
-              </a>
-            </div>
-          </li>
-          <!-- 👆 FINE BLOCCO PRODOTTO 1 👆 -->
-
-
-          <!-- ====================================================================
-               ESEMPIO PRODOTTO 2
-               ==================================================================== -->
-          <li class="product-card">
-            <div class="product-media">
-              <span class="product-badge">Novità</span>
-
-              <!-- 🖼️ Immagine: cambia src con il nome della tua foto dentro la cartella img/ -->
-              <button type="button" class="poster poster--wide" data-zoom aria-label="Giubbotto Piumino Trapuntato Avirex con Cappuccio – Verde Salvia">
-                <img src="img/giubotto.jpg" alt="Giubbotto Piumino Trapuntato Avirex con Cappuccio – Verde Salvia" width="8160" height="6120" loading="lazy">
-              </button>
-            </div>
-
-            <div class="product-body">
-              <p class="product-category">Capispalla e Piumini Casual</p>
-
-              <!-- 🏷️ Nome del prodotto -->
-              <h3 class="product-title">Giubbotto Piumino Trapuntato Avirex con Cappuccio – Verde Salvia</h3>
-
-              <!-- 📝 Descrizione del prodotto -->
-              <p class="product-desc">Giubbotto piumino da uomo firmato Avirex con cappuccio imbottito e regolabile tramite coulisse, realizzato in tessuto tecnico verde militare/salvia con lavorazione trapuntata ad ampie fasce. Il capo offre una protezione ideale contro freddo e vento grazie alla chiusura zip frontale coperta da patta protettiva e al collo alto. Dotato di pratiche tasche laterali con chiusura a bottone a pressione e dettaglio logo Avirex sul petto. Disponibile nelle taglie dalla M alla XXL al prezzo di 65€.</p>
-
-              <div class="product-meta">
-                <!-- 💰 Prezzo del prodotto -->
-                <span class="product-price">€ 65,00</span>
-                <span class="product-tag">Disponibile al banco</span>
-              </div>
-
-              <!-- 💬 Pulsante WhatsApp -->
-              <a class="btn btn--wa-product" href="https://wa.me/393473820793?text=Ciao!%20Vorrei%20informazioni%20sul%20Giubbotto%20Piumino%20Trapuntato%20Avirex%20con%20Cappuccio%20Verde%20Salvia" target="_blank" rel="noopener noreferrer">
-                Chiedi disponibilità su WhatsApp
-              </a>
-            </div>
-          </li>
-          <!-- 👆 FINE BLOCCO PRODOTTO 2 👆 -->
-
-
-          <!-- ====================================================================
-               ESEMPIO PRODOTTO 3
-               ==================================================================== -->
-          <li class="product-card">
-            <div class="product-media">
-              <span class="product-badge">In arrivo</span>
-
-              <!-- 🖼️ Immagine: cambia src con il nome della tua foto dentro la cartella img/ -->
-              <button type="button" class="poster poster--wide" data-zoom aria-label="Ingrandisci foto Camicia in Lino Lavato Casual">
-                <img src="img/camicia-lino-casual.jpg" alt="..." width="600" height="720" loading="lazy">
-              </button>
-            </div>
-
-            <div class="product-body">
-              <p class="product-category">...</p>
-
-              <!-- 🏷️ Nome del prodotto -->
-              <h3 class="product-title">...</h3>
-
-              <!-- 📝 Descrizione del prodotto -->
-              <p class="product-desc">...</p>
-
-              <div class="product-meta">
-                <!-- 💰 Prezzo del prodotto -->
-                <span class="product-price">€ 0,00</span>
-                <span class="product-tag">Disponibile al banco</span>
-              </div>
-
-              <!-- 💬 Pulsante WhatsApp -->
-              <a class="btn btn--wa-product" href="https://wa.me/393473820793?text=Ciao!%20Vorrei%20informazioni%20sulla%20Camicia%20in%20Puro%20Lino" target="_blank" rel="noopener noreferrer">
-                Chiedi disponibilità su WhatsApp
-              </a>
-            </div>
-          </li>
-          <!-- ====================================================================
-               ESEMPIO PRODOTTO 4
-               ==================================================================== -->
-          <li class="product-card">
-            <div class="product-media">
-              <span class="product-badge">In arrivo</span>
-
-              <!-- 🖼️ Immagine: cambia src con il nome della tua foto dentro la cartella img/ -->
-              <button type="button" class="poster poster--wide" data-zoom aria-label="Ingrandisci foto Camicia Microquadretti Blu e Bianco">
-                <img src="img/camicia-microquadri-blu.jpg" alt="Camicia Microquadretti Blu e Bianco" width="600" height="720" loading="lazy">
-              </button>
-            </div>
-
-            <div class="product-body">
-              <p class="product-category">...</p>
-
-              <!-- 🏷️ Nome del prodotto -->
-              <h3 class="product-title">...</h3>
-
-              <!-- 📝 Descrizione del prodotto -->
-              <p class="product-desc">...</p>
-
-              <div class="product-meta">
-                <!-- 💰 Prezzo del prodotto -->
-                <span class="product-price">€ 0,00</span>
-                <span class="product-tag">Disponibile al banco</span>
-              </div>
-
-              <!-- 💬 Pulsante WhatsApp -->
-              <a class="btn btn--wa-product" href="https://wa.me/393473820793?text=Ciao!%20Vorrei%20informazioni%20sulla%20Camicia%20a%20Microquadretti%20Blu" target="_blank" rel="noopener noreferrer">
-                Chiedi disponibilità su WhatsApp
-              </a>
-            </div>
-          </li>
-          <!-- 👆 FINE BLOCCO PRODOTTO 4 👆 -->
-
-        </ul>
-      </div>
-    </section>
-
     <!-- ==========================================
          PROSSIME FIERE
          ========================================== -->
-    <section class="section section--alt" id="prossime-fiere" aria-labelledby="titolo-fiere">
+    <section class="section" id="prossime-fiere" aria-labelledby="titolo-fiere">
       <div class="wrap">
         <div class="section-head"><p class="eyebrow">Fiere ed eventi speciali</p><h2 id="titolo-fiere">Prossime fiere</h2><p class="lead">Saremo presenti con il nostro banco anche in queste fiere. Tocca una locandina per ingrandirla.</p></div>
         <div class="fairs">
@@ -447,8 +250,8 @@
             <div class="fair-body"><p class="fair-tag" hidden></p><h3 class="fair-place">Arsego (PD)</h3><p class="fair-note">Antica Fiera di Arsego · dal 16 al 20 ottobre</p><p class="fair-label">Ci trovi</p><ul class="fair-dates"><li><time datetime="2026-10-18">Domenica 18 ottobre</time></li><li><time datetime="2026-10-19">Lunedì 19 ottobre</time></li></ul><p class="fair-where">📍 Arsego (PD)</p></div>
           </article>
           <article class="fair" id="fiera-arzignano" data-fiera data-nome="Fiera di Arzignano" data-luogo="Arzignano (VI)">
-            <button type="button" class="poster" data-zoom aria-label="Ingrandisci la locandina della fiera di Arzignano"><img src="img/arzignano.jpg" alt="" width="1289" height="1136" loading="lazy" decoding="async"></button>
-            <div class="fair-body"><p class="fair-tag" hidden></p><h3 class="fair-place">Arzignano (VI)</h3><p class="fair-note">Fiera dei Santi · dal 23 ottobre al 1 novembre</p><p class="fair-label">Ci trovi</p><ul class="fair-dates"><li><time datetime="2026-10-31">Sabato 31 ottobre</time></li><li><time datetime="2026-11-01">Domenica 1 novembre</time></li></ul><p class="fair-where">📍 Arzignano (VI)</p></div>
+            <div class="poster poster--empty" role="img" aria-label="Locandina non ancora disponibile"><span>Locandina<br>in arrivo</span></div>
+            <div class="fair-body"><p class="fair-tag" hidden></p><h3 class="fair-place">Arzignano (VI)</h3><p class="fair-label">Ci trovi</p><ul class="fair-dates"><li><time datetime="2026-10-31">Sabato 31 ottobre</time></li><li><time datetime="2026-11-01">Domenica 1 novembre</time></li></ul><p class="fair-where">📍 Arzignano (VI)</p></div>
           </article>
           <article class="fair fair--wide" id="fiera-piazzola-sul-brenta" data-fiera data-nome="Fiera di Piazzola sul Brenta" data-luogo="Piazzola sul Brenta (PD)">
             <button type="button" class="poster poster--wide" data-zoom aria-label="Ingrandisci la locandina della fiera di Piazzola sul Brenta"><img src="img/piazzola-sul-brenta.jpeg" alt="" width="900" height="506" loading="lazy" decoding="async"></button>
@@ -594,11 +397,11 @@
         } else if (mercato) {
           box.className = 'today today--mercato';
           titolo.innerHTML = `<span class="today-kicker">🟢 OGGI CI TROVI AL MERCATO</span><span class="today-place">${prep(mercato.luogo)}${mercato.luogo}!</span>`;
-          azioni.append(link('Prossime fiere →', '#prossime-fiere'), link('Scopri le novità', '#novita', 'btn btn--ghost'));
+          azioni.append(link('Prossime fiere →', '#prossime-fiere'), link('Abbigliamento', 'abbigliamento.html', 'btn btn--ghost'));
         } else {
           box.className = 'today today--libero';
           titolo.textContent = '📅 Consulta i nostri prossimi appuntamenti qui sotto!';
-          azioni.append(link('Mercati settimanali', '#mercati-settimanali'), link('Scopri le novità', '#novita', 'btn btn--ghost'), link('Prossime fiere', '#prossime-fiere', 'btn btn--ghost'));
+          azioni.append(link('Mercati settimanali', '#mercati-settimanali'), link('Abbigliamento', 'abbigliamento.html', 'btn btn--ghost'), link('Prossime fiere', '#prossime-fiere', 'btn btn--ghost'));
         }
         box.append(data, titolo, azioni);
       }
