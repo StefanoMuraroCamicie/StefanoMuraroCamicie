@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Stefano Muraro Camicie - Sezione Abbigliamento. Scopri i nostri capi disponibili al banco nei mercati e alle fiere.">
+  <meta name="theme-color" content="#faf7ef">
+  <title>Abbigliamento | Stefano Muraro Camicie</title>
+          
+  <link rel="icon" type="image/png" href="img/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Jost:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #16161a;
+      --ink-soft: #52525a;
+      --cream: #faf7ef;
+      --paper: #ffffff;
+      --line: #e7e0cc;
+      --gold: #fdd54b;
+      --gold-deep: #d9a900;
+      --red: #c4161c;
+      --green: #18794e;
+      --amber-bg: #fff4d6;
+      --amber-line: #f0c35a;
+      --radius: 16px;
+      --shadow: 0 1px 2px rgb(22 22 26 / 6%), 0 8px 22px rgb(22 22 26 / 7%);
+      --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      --sans: "Jost", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { color-scheme: light; scroll-behavior: smooth; text-size-adjust: 100%; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font: 400 1.0625rem/1.55 var(--sans); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    h1, h2, h3, p, ul { margin-top: 0; }
+    [hidden] { display: none !important; }
+    :focus-visible { outline: 3px solid #1d4ed8; outline-offset: 3px; border-radius: 6px; }
+
+    .wrap { width: min(100% - 32px, 1160px); margin-inline: auto; }
+    section[id], footer[id], .category-section[id] { scroll-margin-top: 88px; }
+
+    .skip-link { position: fixed; z-index: 100; top: -64px; left: 12px; padding: 10px 14px; border-radius: 10px; background: var(--ink); color: #fff; text-decoration: none; }
+    .skip-link:focus { top: 12px; }
+
+    /* ==================== HEADER & NAV ==================== */
+    .site-header { position: sticky; z-index: 20; top: 0; border-bottom: 1px solid var(--line); background: rgb(250 247 239 / 94%); backdrop-filter: saturate(1.4) blur(10px); }
+    .header-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; width: min(100% - 32px, 1160px); min-height: 68px; margin-inline: auto; padding-block: 8px; }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; color: var(--ink); text-decoration: none; }
+    .brand-logo { width: 52px; height: 52px; flex: none; border-radius: 50%; object-fit: cover; background: var(--paper); }
+    .brand-text { display: flex; flex-direction: column; min-width: 0; }
+    .brand-name { font: 700 1.32rem/1.05 var(--serif); }
+    .brand-sub { margin-top: 3px; color: var(--ink-soft); font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
+    
+    .nav-toggle { display: none; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink); cursor: pointer; }
+    .bars, .bars::before, .bars::after { display: block; width: 20px; height: 2px; margin-inline: auto; border-radius: 2px; background: currentColor; content: ""; transition: transform .2s ease; }
+    .bars { position: relative; }
+    .bars::before, .bars::after { position: absolute; left: 0; }
+    .bars::before { top: -6px; }
+    .bars::after { top: 6px; }
+    .nav-toggle[aria-expanded="true"] .bars { background: transparent; }
+    .nav-toggle[aria-expanded="true"] .bars::before { top: 0; transform: rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .bars::after { top: 0; transform: rotate(-45deg); }
+    
+    .nav { width: 100%; }
+    .nav ul { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; }
+    .nav a { display: block; padding: 10px 14px; border-radius: 999px; font-size: .98rem; font-weight: 500; text-decoration: none; }
+    .nav a:hover, .nav a.active { background: rgb(253 213 75 / 40%); font-weight: 600; }
+
+    /* ==================== NAVIGAZIONE CATEGORIE ==================== */
+    .category-nav { margin-top: 22px; margin-bottom: 30px; }
+    .category-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .btn-category { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 20px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: .92rem; font-weight: 600; text-decoration: none; box-shadow: 0 2px 5px rgb(22 22 26 / 4%); cursor: pointer; transition: all .2s ease; }
+    .btn-category:hover { background: var(--amber-bg); border-color: var(--amber-line); color: var(--ink); }
+    .btn-category.active, .btn-category:active { background: var(--ink); color: #fff; border-color: var(--ink); box-shadow: 0 3px 10px rgb(22 22 26 / 15%); }
+
+    /* ==================== SEZIONE PRODOTTI ==================== */
+    .section { padding: 40px 0; }
+    .eyebrow { margin-bottom: 6px; color: var(--ink-soft); font-size: .78rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+    .section-head { margin-bottom: 20px; }
+    .section-head h1 { margin-bottom: .3em; font: 700 clamp(2.1rem, 6.5vw, 3rem)/1.05 var(--serif); }
+    .section-head h1::after { display: block; width: 52px; height: 4px; margin-top: 10px; border-radius: 4px; background: var(--gold); content: ""; }
+    .lead { max-width: 62ch; margin-bottom: 0; color: var(--ink-soft); font-size: 1rem; }
+
+    .category-section { margin-bottom: 42px; }
+    .category-section:last-of-type { margin-bottom: 0; }
+    .category-header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 18px; padding-bottom: 8px; border-bottom: 2px solid var(--line); }
+    .category-title { margin: 0; font: 700 clamp(1.45rem, 3.5vw, 1.85rem)/1.15 var(--serif); color: var(--ink); }
+    .category-subtitle { margin: 0; color: var(--ink-soft); font-size: .88rem; font-weight: 500; }
+
+    /* GRIGLIA PRODOTTI */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .product-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgb(22 22 26 / 8%), 0 12px 28px rgb(22 22 26 / 10%); }
+
+    /* IMMAGINE PRODOTTO: FORMATO 4:3 ADATTABILE E COMPLETO */
+    .product-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #f5f0e3;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-media .poster {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: auto;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      cursor: zoom-in;
+    }
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      transition: transform .3s ease;
+    }
+    .product-media:hover img { transform: scale(1.03); }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 12%);
+    }
+    .product-badge--classic { background: #e3ded2; color: var(--ink); }
+    
+    .poster--empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      height: 100%;
+      background: #ede8dc;
+      color: var(--ink-soft);
+      font-size: .8rem;
+      font-weight: 600;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .poster--empty .empty-icon { font-size: 1.8rem; }
+
+    /* CORPO SCHEDA PROPORZIONATO */
+    .product-body {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding: 14px;
+      gap: 5px;
+    }
+    .product-category { margin: 0; color: var(--ink-soft); font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+    .product-title { margin: 0; font: 700 1.15rem/1.2 var(--serif); color: var(--ink); }
+    .product-desc { margin: 3px 0 0; color: var(--ink-soft); font-size: .86rem; line-height: 1.4; flex-grow: 1; }
+    .product-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+    .product-price { font: 700 1.25rem/1 var(--sans); color: var(--ink); }
+    .product-tag { font-size: .74rem; color: var(--green); font-weight: 600; }
+    .btn--wa-product {
+      width: 100%;
+      min-height: 38px;
+      margin-top: 10px;
+      border: 1px solid #1ba853;
+      border-radius: 10px;
+      background: #25d366;
+      color: #fff;
+      font-size: .86rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      transition: background .2s ease;
+    }
+    .btn--wa-product:hover { background: #1faa54; }
+
+    /* ==================== FOOTER E CONTATTI ==================== */
+    .site-footer { padding: 46px 0 calc(28px + env(safe-area-inset-bottom)); background: var(--ink); color: #f2efe6; }
+    .footer-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .footer-brand img { width: 64px; height: 64px; border-radius: 50%; background: var(--paper); object-fit: cover; }
+    .contacts { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 26px 0 0; padding: 0; list-style: none; }
+    .contact { display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; border: 1px solid rgb(255 255 255 / 14%); border-radius: 16px; background: rgb(255 255 255 / 6%); }
+    .contact-ico { font-size: 1.6rem; line-height: 1.2; }
+    .contact-body { min-width: 0; }
+    .contact-label { display: block; color: var(--gold); font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+    .contact-value { display: inline-block; margin-top: 2px; color: #fff; font-size: 1.08rem; font-weight: 600; overflow-wrap: anywhere; text-decoration: none; }
+    .contact-value:hover { text-decoration: underline; }
+    .contact-value--email { font-size: .95rem; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .pill { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 16px; border-radius: 999px; background: var(--gold); color: var(--ink); font-weight: 600; text-decoration: none; }
+    .pill--wa { background: #25d366; color: #fff; }
+    .copyright { margin: 34px 0 0; padding-top: 18px; border-top: 1px solid rgb(255 255 255 / 14%); color: #a9a595; font-size: .9rem; }
+
+    /* ==================== LIGHTBOX MODALE ==================== */
+    .lightbox { width: min(90vw, 560px); max-height: 86vh; padding: 0; border: 0; background: transparent; }
+    .lightbox::backdrop { background: rgb(10 10 12 / 84%); }
+    .lightbox img { max-width: 100%; max-height: 82vh; margin-inline: auto; border-radius: 12px; background: #fff; object-fit: contain; }
+    .lightbox-close { position: absolute; top: 8px; right: 8px; width: 40px; height: 40px; border: 0; border-radius: 50%; background: #fff; color: var(--ink); font-size: 1.6rem; cursor: pointer; }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr; gap: 16px; max-width: 340px; margin-inline: auto; }
+    }
+    @media (max-width: 759px) {
+      .js .nav-toggle { display: inline-grid; place-items: center; }
+      .js .nav { display: none; position: absolute; top: 100%; right: 0; left: 0; width: auto; border-bottom: 1px solid var(--line); background: var(--cream); box-shadow: 0 16px 28px rgb(22 22 26 / 14%); }
+      .js .nav.open { display: block; }
+      .js .nav ul { flex-direction: column; gap: 0; width: min(100% - 32px, 1160px); margin-inline: auto; padding: 4px 0 14px; }
+      .js .nav a { padding: 16px 6px; border-bottom: 1px solid var(--line); border-radius: 0; font-size: 1.08rem; }
+      .js .nav li:last-child a { border-bottom: 0; }
+    }
+    @media (min-width: 680px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      .contacts { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 760px) {
+      .header-bar { flex-wrap: nowrap; }
+      .nav { width: auto; margin-left: auto; }
+      .nav ul { flex-wrap: nowrap; }
+    }
+    @media (min-width: 980px) {
+      .products-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+
+  <!-- ==========================================
+       HEADER & NAVIGAZIONE
+       ========================================== -->
+  <header class="site-header">
+    <div class="header-bar">
+      <a class="brand" href="index.html" aria-label="Stefano Muraro Camicie, torna all'inizio">
+        <img class="brand-logo" src="img/logo.png" alt="Logo Stefano Muraro Camicie" width="52" height="52">
+        <span class="brand-text">
+          <span class="brand-name">Stefano Muraro Camicie</span>
+          <span class="brand-sub">Dal 1969</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu">
+        <span class="bars" aria-hidden="true"></span>
+      </button>
+      <nav class="nav" id="menu" aria-label="Navigazione principale">
+        <ul>
+          <li><a href="index.html#dove-siamo-oggi">Home</a></li>
+          <li><a href="index.html#mercati-settimanali">Mercati</a></li>
+          <li><a href="abbigliamento.html" class="active" aria-current="page">Abbigliamento</a></li>
+          <li><a href="index.html#prossime-fiere">Fiere</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenuto">
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">I nostri capi</p>
+          <h1>Abbigliamento Uomo</h1>
+          <p class="lead">Dai modelli classici al casual raffinato: scopri le proposte disponibili al nostro banco nei mercati settimanali e alle fiere. Clicca sulle immagini per ingrandirle.</p>
+        </div>
+
+        <!-- ==========================================
+             TASTI / NAVIGAZIONE CATEGORIE
+             ========================================== -->
+        <nav class="category-nav" aria-label="Filtra categorie">
+          <ul class="category-buttons" role="tablist">
+            <li>
+              <button type="button" class="btn-category active" data-filter="all" role="tab" aria-selected="true">
+                Tutti i capi
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn-category" data-filter="camicie" role="tab" aria-selected="false">
+                👔 Tutte le camicie
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn-category" data-filter="maglioni" role="tab" aria-selected="false">
+                🧶 Maglioni e Giacche
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- ==========================================
+             SEZIONE 1: CAMICIE
+             ========================================== -->
+        <div class="category-section" id="camicie" data-category="camicie">
+          <div class="category-header">
+            <h2 class="category-title">Camicie</h2>
+            <p class="category-subtitle">La nostra storia dal 1969: modelli classici e casual in puro cotone</p>
+          </div>
+
+          <ul class="products-grid">
+            
+            <!-- PRODOTTO 1: CAMICIA FOLLIE OUTDOOR -->
+            <li class="product-card">
+              <div class="product-media">
+                <span class="product-badge product-badge--classic">Outdoor</span>
+                <button type="button" class="poster" data-zoom aria-label="Ingrandisci immagine Camicia a Quadri Follie Outdoor">
+                  <img src="img/camicia_follie.jpg" alt="Camicia a Quadri Follie Outdoor 100% Cotone Felpato" loading="lazy">
+                </button>
+              </div>
+              <div class="product-body">
+                <p class="product-category">Camicie Uomo</p>
+                <h3 class="product-title">Camicia a Quadri Follie Outdoor 100% Cotone Felpato</h3>
+                <p class="product-desc">Camicia a manica lunga in morbido cotone felpato, perfetta per le stagioni più fresche e il tempo libero. Fantasia a quadri nei toni del giallo, grigio e marrone, con taschino frontale e colletto classico. Taglie disponibili: dalla M alla 4XL.</p>
+                <div class="product-meta">
+                  <span class="product-price">€ 20,00</span>
+                  <span class="product-tag">Disponibile al banco</span>
+                </div>
+                <a class="btn--wa-product" href="https://wa.me/393473820793?text=Ciao!%20Vorrei%20informazioni%20sulla%20Camicia%20a%20Quadri%20Follie%20Outdoor" target="_blank" rel="noopener">
+                  Chiedi info su WhatsApp
+                </a>
+              </div>
+            </li> 
+
+            <!-- PRODOTTO 2: CAMICIA BAHAMAS GOLF CLUB -->
+            <li class="product-card">
+              <div class="product-media">
+                <span class="product-badge product-badge--classic">Prestige</span>
+                <button type="button" class="poster" data-zoom aria-label="Ingrandisci immagine Camicia Bahamas Golf Club">
+                  <img src="img/camicia_bahamas.jpg" alt="Camicia Bahamas Golf Club Prestige Selection" loading="lazy">
+                </button>
+              </div>
+              <div class="product-body">
+                <p class="product-category">Camicie Uomo</p>
+                <h3 class="product-title">Camicia Bahamas Golf Club - Prestige Selection</h3>
+                <p class="product-desc">Camicia a manica lunga di alta qualità con micro-fantasia geometrica/pied-de-poule sui toni del blu, azzurro e marrone. Curata nei minimi dettagli con bottoni a contrasto e finiture interne del colletto in coordinato. Taglie disponibili: dalla M alla XXXL.</p>
+                <div class="product-meta">
+                  <span class="product-price">€ 35,00</span>
+                  <span class="product-tag">Disponibile al banco</span>
+                </div>
+                <a class="btn--wa-product" href="https://wa.me/393473820793?text=Ciao!%20Vorrei%20informazioni%20sulla%20Camicia%20Bahamas%20Golf%20Club" target="_blank" rel="noopener">
+                  Chiedi info su WhatsApp
+                </a>
+              </div>
+            </li> 
+            
+          </ul>
+        </div>
+
+        <!-- ==========================================
+             SEZIONE 2: MAGLIONI E GIACCHE
+             ========================================== -->
+        <div class="category-section" id="maglioni" data-category="maglioni">
+          <div class="category-header">
+            <h2 class="category-title">Maglioni e Giacche</h2>
+            <p class="category-subtitle">Capi caldi e pratici: cardigan pesante a coste e piumino tecnico</p>
+          </div>
+
+          <ul class="products-grid">
+            <!-- PRODOTTO 3 -->
+            <li class="product-card">
+              <div class="product-media">
+                <span class="product-badge">Novità</span>
+                <button type="button" class="poster" data-zoom aria-label="Ingrandisci immagine Giacca in Maglia a Costa Inglese">
+                  <img src="img/giacca.jpg" alt="Giacca in Maglia a Costa Inglese" loading="lazy">
+                </button>
+              </div>
+              <div class="product-body">
+                <p class="product-category">Maglieria e Maglioni</p>
+                <h3 class="product-title">Giacca in Maglia a Costa Inglese</h3>
+                <p class="product-desc">Cardigan giacca da uomo in maglia pesante a costa inglese color beige, con zip integrale frontale e collo alto. Pratiche tasche laterali e finiture elasticizzate. Disponibile nelle taglie M-XXXL.</p>
+                <div class="product-meta">
+                  <span class="product-price">€ 39,00</span>
+                  <span class="product-tag">Disponibile al banco</span>
+                </div>
+                <a class="btn--wa-product" href="https://wa.me/393473820793?text=Ciao!%20Vorrei%20informazioni%20sulla%20Giacca%20in%20a%20Costa%20Inglese" target="_blank" rel="noopener">
+                  Chiedi info su WhatsApp
+                </a>
+              </div>
+            </li>
+
+            <!-- PRODOTTO 4 -->
+            <li class="product-card">
+              <div class="product-media">
+                <span class="product-badge">Novità</span>
+                <button type="button" class="poster" data-zoom aria-label="Ingrandisci immagine Giubbotto Piumino Avirex">
+                  <img src="img/giubotto.jpg" alt="Giubbotto Piumino Avirex" loading="lazy">
+                </button>
+              </div>
+              <div class="product-body">
+                <p class="product-category">Capispalla e Piumini</p>
+                <h3 class="product-title">Giubbotto Piumino Avirex</h3>
+                <p class="product-desc">Giubbotto piumino Avirex verde salvia con cappuccio imbottito e regolabile. Tessuto tecnico traspirante, isolamento termico e tasche con bottone. Taglie M-XXL.</p>
+                <div class="product-meta">
+                  <span class="product-price">€ 65,00</span>
+                  <span class="product-tag">Disponibile al banco</span>
+                </div>
+                <a class="btn--wa-product" href="https://wa.me/393473820793?text=Ciao!%20Vorrei%20informazioni%20sul%20Piumino%20Avirex" target="_blank" rel="noopener">
+                  Chiedi info su WhatsApp
+                </a>
+              </div>
+            </li>
+
+            <!-- PRODOTTO 5 -->
+            <li class="product-card">
+              <div class="product-media">
+                <span class="product-badge">Novità</span>
+                <button type="button" class="poster" data-zoom aria-label="Ingrandisci immagine Maglia Lupetto Uomo">
+                  <img src="img/lupetti.jpg" alt="Maglia Lupetto Uomo" loading="lazy">
+                </button>
+              </div>
+              <div class="product-body">
+                <p class="product-category">Maglieria Uomo</p>
+                <h3 class="product-title">Maglia Lupetto Uomo Collo Alto</h3>
+                <p class="product-desc">Maglia a collo alto (lupetto) da uomo dal design versatile ed elegante, ideale per la stagione fredda. Morbida e confortevole sulla pelle, perfetta da indossare sia da sola che sotto una giacca o un cappotto. Taglie disponibili: dalla M alla XXL.</p>
+                <div class="product-meta">
+                  <span class="product-price">€ 25,00</span>
+                  <span class="product-tag">Disponibile al banco</span>
+                </div>
+                <a class="btn--wa-product" href="https://wa.me/393473820793?text=Ciao!%20Vorrei%20informazioni%20sulla%20Maglia%20Lupetto%20Uomo" target="_blank" rel="noopener">
+                  Chiedi info su WhatsApp
+                </a>
+              </div>
+            </li>
+          
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       FOOTER E CONTATTI
+       ========================================== -->
+  <footer class="site-footer" id="contatti">
+    <div class="wrap">
+      <div class="footer-brand">
+        <img src="img/logo.png" alt="" width="64" height="64">
+        <h2 style="color:#fff;margin:0">Contatti</h2>
+      </div>
+      <p class="lead" style="color:#cfcabb">Chiamaci, scrivici o vieni a trovarci al banco: saremo felici di consigliarti.</p>
+      
+      <ul class="contacts">
+        <li class="contact">
+          <span class="contact-ico" aria-hidden="true">📞</span>
+          <div class="contact-body">
+            <span class="contact-label">Telefono / WhatsApp</span>
+            <a class="contact-value" href="tel:+393473820793">347 382 0793</a>
+            <div class="contact-actions">
+              <a class="pill" href="tel:+393473820793">Chiama</a>
+              <a class="pill pill--wa" href="https://wa.me/393473820793" target="_blank" rel="noopener noreferrer">Scrivici su WhatsApp</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="contact">
+          <span class="contact-ico" aria-hidden="true">✉️</span>
+          <div class="contact-body">
+            <span class="contact-label">Email</span>
+            <a class="contact-value contact-value--email" href="mailto:stefanomurarocamicie@gmail.com">stefanomurarocamicie@gmail.com</a>
+          </div>
+        </li>
+
+        <li class="contact">
+          <span class="contact-ico" aria-hidden="true">📱</span>
+          <div class="contact-body">
+            <span class="contact-label">Facebook</span>
+            <a class="contact-value" href="https://www.facebook.com/share/18fLUep4R3/" target="_blank" rel="noopener noreferrer">Stefano Muraro Camicie su Facebook</a>
+          </div>
+        </li>
+
+        <li class="contact">
+          <span class="contact-ico" aria-hidden="true">📸</span>
+          <div class="contact-body">
+            <span class="contact-label">Instagram</span>
+            <a class="contact-value" href="https://www.instagram.com/stefanomurarocamicie?exln=Mm85emU4YWU4NGZh" target="_blank" rel="noopener noreferrer">@stefanomurarocamicie</a>
+          </div>
+        </li>
+      </ul>
+
+      <p class="copyright">Copyright © <span id="anno">2026</span> Stefano Muraro Camicie.</p>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       MODALE LIGHTBOX PER INGRANDIRE LE FOTO
+       ========================================== -->
+  <dialog class="lightbox" id="lightbox">
+    <button type="button" class="lightbox-close" aria-label="Chiudi finestra">×</button>
+    <img alt="">
+  </dialog>
+
+  <!-- ==========================================
+       SCRIPT INTERATTIVI
+       ========================================== -->
+  <script>
+    (() => {
+      "use strict";
+
+      // Menu mobile e accessibilità
+      const navToggle = document.querySelector('.nav-toggle');
+      const menu = document.querySelector('#menu');
+      const chiudiMenu = () => {
+        menu?.classList.remove('open');
+        navToggle?.setAttribute('aria-expanded', 'false');
+        navToggle?.setAttribute('aria-label', 'Apri il menu');
+      };
+
+      document.documentElement.classList.add('js');
+
+      navToggle?.addEventListener('click', () => {
+        const aperto = menu.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(aperto));
+        navToggle.setAttribute('aria-label', aperto ? 'Chiudi il menu' : 'Apri il menu');
+      });
+
+      menu?.addEventListener('click', e => {
+        if (e.target.closest('a')) chiudiMenu();
+      });
+
+      document.addEventListener('click', e => {
+        if (!e.target.closest('.site-header')) chiudiMenu();
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') chiudiMenu();
+      });
+
+      // Filtro sezioni / categorie (Camicie e Maglioni)
+      const categoryButtons = document.querySelectorAll('.btn-category[data-filter]');
+      const sections = document.querySelectorAll('.category-section');
+
+      categoryButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          categoryButtons.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+
+          const filter = btn.getAttribute('data-filter');
+          sections.forEach(sec => {
+            if (filter === 'all' || sec.getAttribute('data-category') === filter) {
+              sec.hidden = false;
+              sec.style.display = '';
+            } else {
+              sec.hidden = true;
+              sec.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Segnaposto automatico elegante per foto in attesa di caricamento
+      function attivaSegnaposto() {
+        document.querySelectorAll('.poster img').forEach(img => {
+          const mostraSegnaposto = () => {
+            const poster = img.closest('.poster');
+            if (!poster) return;
+            const placeholder = document.createElement('div');
+            placeholder.className = `${poster.className} poster--empty`;
+            placeholder.setAttribute('role', 'img');
+            placeholder.setAttribute('aria-label', 'Foto in arrivo');
+            placeholder.innerHTML = '<span class="empty-icon" aria-hidden="true">👔</span><span>Foto<br>in arrivo</span>';
+            poster.replaceWith(placeholder);
+          };
+          img.addEventListener('error', mostraSegnaposto, { once: true });
+          if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) mostraSegnaposto();
+        });
+      }
+      attivaSegnaposto();
+
+      // Lightbox ingrandimento immagine
+      const dialogo = document.querySelector('#lightbox');
+      const immagineDialogo = dialogo?.querySelector('img');
+
+      document.addEventListener('click', e => {
+        const btn = e.target.closest('[data-zoom]');
+        if (!btn || !dialogo || !immagineDialogo) return;
+        const img = btn.querySelector('img');
+        if (!img) return;
+        immagineDialogo.src = img.currentSrc || img.src;
+        immagineDialogo.alt = img.alt || 'Dettaglio capo';
+        dialogo.showModal();
+      });
+
+      dialogo?.addEventListener('click', e => {
+        if (e.target === dialogo || e.target.closest('.lightbox-close')) dialogo.close();
+      });
+
+      // Anno dinamico nel footer
+      const annoEl = document.getElementById('anno');
+      if (annoEl) annoEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
